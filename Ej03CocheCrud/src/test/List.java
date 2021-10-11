@@ -24,8 +24,9 @@ public class List {
 				System.out.print(rs.getDouble("NUMKM"));
 				System.out.println();
 				
-				System.out.println("Sentencia SQL ejecutada con éxito");
 			}
+			
+			System.out.println("Sentencia SQL ejecutada con éxito");
 		}catch (SQLException e) {
 			System.out.println("Error al realizar una operacion en la base de datos");
 			System.out.println(e.getMessage());

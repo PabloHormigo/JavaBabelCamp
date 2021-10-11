@@ -6,6 +6,7 @@ public class Coche {
 	private String marca;
 	private String modelo;
 	private double numKM;
+	
 	public int getId() {
 		return id;
 	}
