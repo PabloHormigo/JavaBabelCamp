@@ -9,6 +9,8 @@ public class HiloPrimos extends Thread{
 	@Override
 	public void run() {
 		
+		long begin = System.currentTimeMillis();
+		
 		System.out.println("Arrancando hilo: "+Thread.currentThread().getName());
 		
 		if(esPrimo(auxNum)) {
@@ -17,6 +19,9 @@ public class HiloPrimos extends Thread{
 		else {
 			System.out.println("El "+Thread.currentThread().getName()+" ha calculado que el numero "+auxNum+" NO es primo");
 		}
+		
+		long end = System.currentTimeMillis();
+		System.out.println("\tEl "+Thread.currentThread().getName()+" ha tardado "+(end-begin)+" milisegundos");
 		
 	}
 	
