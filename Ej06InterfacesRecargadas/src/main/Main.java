@@ -25,7 +25,7 @@ public class Main {
 	public static void moverVehiculos(List<Vehiculo> listaVehiculos) {
 		for(int i=0;i<listaVehiculos.size();i++) {
 			System.out.println("\tSoy "+listaVehiculos.get(i).getNombre()+
-					" y me he movido "+listaVehiculos.get(i).mover(100)+" metros");
+					" y me he movido "+listaVehiculos.get(i).mover(100)+" metros\n");
 		}
 	}
 
