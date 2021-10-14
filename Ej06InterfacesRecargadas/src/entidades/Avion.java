@@ -8,7 +8,7 @@ public class Avion extends Vehiculo{
 	
 	@Override
 	public int mover(int distancia) {
-		System.out.println("Me muevo por agua.");
+		System.out.println("Me muevo por aire.");
 		return distancia + (getCv()*3);
 	}
 
