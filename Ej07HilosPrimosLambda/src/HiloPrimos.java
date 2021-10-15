@@ -1,4 +1,4 @@
-public class HiloPrimos extends Thread{
+public class HiloPrimos{
 	
 	private int auxNum;
 	
@@ -33,4 +33,5 @@ public class HiloPrimos extends Thread{
 		  }
 		  return primo;
 	}
+	
 }
