@@ -5,8 +5,15 @@ import java.util.Map;
 import java.util.Set;
 
 public class Colecciones {
+	//Coleccion ordenada de elementos. Admite repeticion
 	private List<Persona> listaPersonas;
+	
+	//Coleccion NO ordenada de elementos. No admite repeticion
 	private Set<String> conjuntoStrings;
+	
+	//Estructura de datos de tipo clave-valor. La cual el valor se guarda
+	//o se asocia a traves de una clave. Tiene una estructura 
+	//bidimensional
 	private Map<Integer,Persona> mapaPersonas;
 	
 	public List<Persona> getListaPersonas() {

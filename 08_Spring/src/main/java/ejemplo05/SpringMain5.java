@@ -8,7 +8,7 @@ public class SpringMain5 {
 		
 	static {
 		context = 
-				new ClassPathXmlApplicationContext("beans05.xml");
+				new ClassPathXmlApplicationContext("ApplicationContext05.xml");
 	}
 	public static void main(String[] args) {
 		Persona paco = context.getBean("personaInner",Persona.class);

@@ -8,6 +8,22 @@
 		<property name="edad" value="18"></property>
 	</bean>
 	
+	<!-- Es muy posible que cuando creamos un objeto, ese objeto necesite
+		de otros objetos para poder funcionar adecuadamente
+		Spring nos proporciona un mecanismo llamado inyeccion de dependencias, el cual
+		hace que spring pueda pasarle objetos a otros objetos, para que tengan toda sun funcionalidad.
+	
+		En este caso, tenemos la clase persona que tiene dependencia 
+		de la clase Direccion, asi pues vamos a querer que spring nos inyecte 
+		un objeto de tipo direccion a la clase persona
+	
+		Spring nos proporciona varias maneras de inyectar una dependencia, en este 
+		caso vamos a verla por propiedad, pero tambien podriamos hacerlo por
+		ejemplo por constructor
+	-->
+	<!-- Primero creamo el objeto direccion que vamos a inyectar a la persona
+		en este caso el scope es singleton
+	 -->
 	<bean id="direccionPaco" class="ejemplo04.Direccion">
 		<property name="nombreVia" value="Jogüarts"></property>
 		<property name="tipoVia" value="isla"></property>
@@ -15,6 +31,10 @@
 		<property name="pais" value="Nunca Jamas"></property>
 	</bean>
 	
+	<!-- Una vez creado el objeto direccion se lo podemos inyectar a la persona
+		 por medio de propuedad y a traves del atributo "ref" y pasandole el 
+		 id del objeto que queremos dar de alta 
+	-->
 	<bean id="paco" class="ejemplo04.Persona" scope="singleton">
 		<property name="nombre" value="Paco"></property>
 		<property name="edad" value="50"></property>
@@ -22,6 +42,15 @@
 		<property name="direccion" ref="direccionPaco"></property>
 	</bean>
 	
+	<!-- En vez de tener creado el objeto, podemos crear el objeto dentro
+		del xml donde creamos el otro objeto. Esta manera se llama "inner Bean"
+		y seria un objeto anonimos, es decir, no tendria id.
+		
+		En este caso, el ciclo de vida de la direccion esta ligada al ciclo de vida de persona
+		Esto se puede considerar composicion
+		
+		A diferencia del otro caso, no podemos reutilizar la direccion para otros objetos
+	-->
 	<bean id="marta" class="ejemplo04.Persona">
 		<property name="nombre" value="Marta"></property>
 		<property name="edad" value="25"></property>
@@ -34,6 +63,19 @@
 				<property name="pais" value="España"></property>
 			</bean>
 		</property>
+	</bean>
+	
+	<!-- Una de las ventajas de trabajar con inyeccion de dependencias y los 
+		objetos prototipados, es que cuando me cree un objeto de tipo prototipado
+		tambien me va a avenir con todos los objetos que necesite, por supuesto
+		siempre que lo tenga asi configurado
+	-->
+	<bean id="personaPrototype" class="ejemplo04.Persona" scope="prototype">
+		<property name="direccion" ref="direccionPrototype"></property>
+	</bean>
+	
+	<bean id="direccionPrototype" class="ejemplo04.Direccion" scope="prototype">
+		
 	</bean>
 	
 </beans>

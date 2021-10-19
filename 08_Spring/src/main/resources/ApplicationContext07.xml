@@ -3,6 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- Spring tambien esta muy preparado para trabajar con colecciones
+		Para tipos sencillos podemos usar la etiqueta value -->
 	<bean id="listaNombres" class="java.util.ArrayList">
 		<constructor-arg>
 			<list value-type="java.lang.String">
@@ -24,6 +26,9 @@
 		<property name="edad" value="85"></property>
 	</bean>
 	
+	<!--  Para listas de objetos podemos iniciar una lusta con inner beans o 
+			con objetos referenciados 
+	-->
 	<bean id="listaPersonas" class="java.util.ArrayList">
 		<constructor-arg>
 			<list value-type="ejemplo07.Persona">
@@ -49,6 +54,20 @@
 				</entry>
 				<entry key="3" value-ref="persona2"></entry>
 			</map>
+		</constructor-arg>
+	</bean>
+	
+	<!--  Un conjunto no admite valores repetidos -->
+	<bean id="conjuntoPersonas" class="java.util.HashSet">
+		<constructor-arg>
+			<set value-type="ejemplo07.Persona">
+				<ref bean="persona1"/>
+				<ref bean="persona2"/>	
+				<bean class="ejemplo07.Persona">
+						<property name="nombre" value="Mickey Mouse"></property>
+						<property name="edad" value="100"></property>
+					</bean>		
+			</set>
 		</constructor-arg>
 	</bean>
 	

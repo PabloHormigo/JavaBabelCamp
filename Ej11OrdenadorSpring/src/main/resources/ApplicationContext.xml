@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Creamos las ram -->
+	<bean id="ram1" class="entidad.Ram">
+		<property name="precio" value="113.05"></property>
+		<property name="hz" value="3200"></property>
+		<property name="generacion" value="4º generacion"></property>
+	</bean>
+	<bean id="ram2" class="entidad.Ram">
+		<property name="precio" value="149.98"></property>
+		<property name="hz" value="4000"></property>
+		<property name="generacion" value="4º generacion"></property>
+	</bean>
+	
+	<!-- Creamos la lista que contendra las ram -->
+	<bean id="listaRam" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="entidad.Ram">
+				<ref bean="ram1"/>
+				<ref bean="ram2"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Creamos las tarjetas graficas -->
+	<bean id="tarjetaGraficaIntegrada" class="entidad.TarjetaGrafica">
+		<property name="precio" value="100"></property>
+		<property name="marca" value="Intel"></property>
+		<property name="modelo" value="HD620"></property>
+		<property name="ram" ref="ram1"></property>
+	</bean>
+	<bean id="tarjetaGrafica1" class="entidad.TarjetaGrafica">
+		<property name="precio" value="999.90"></property>
+		<property name="marca" value="MSI"></property>
+		<property name="modelo" value="GeForce RTX 3070"></property>
+		<property name="ram" ref="ram1"></property>
+	</bean>
+	
+	<!-- Creamos la lista que contendra las tarjetas graficas -->
+	<bean id="listaTarjetasGraficas" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="entidad.TarjetaGrafica">
+				<ref bean="tarjetaGraficaIntegrada"/>
+				<ref bean="tarjetaGrafica1"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Creamos el procesador -->
+	<bean id="procesador" class="entidad.Procesador">
+		<property name="precio" value="440.97"></property>
+		<property name="hz" value="3700"></property>
+		<property name="marca" value="Intel"></property>
+		<property name="tarjetaIntegrada" ref="tarjetaGraficaIntegrada"></property>
+	</bean>
+	
+	<!-- Creamos los perifericos -->
+	<bean id="periferico1" class="entidad.Periferico">
+		<property name="precio" value="24.99"></property>
+		<property name="marca" value="Logitech"></property>
+		<property name="tipo" value="Raton"></property>
+	</bean>
+	<bean id="periferico2" class="entidad.Periferico">
+		<property name="precio" value="38.99"></property>
+		<property name="marca" value="Tempest"></property>
+		<property name="tipo" value="Teclado"></property>
+	</bean>
+	<bean id="periferico3" class="entidad.Periferico">
+		<property name="precio" value="399.99"></property>
+		<property name="marca" value="Gigabyte"></property>
+		<property name="tipo" value="Monitor"></property>
+	</bean>
+	
+	<!-- Creamos la lista de perifericos -->
+	<bean id="listaPerifericos" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="entidad.Periferico">
+				<ref bean="periferico1"/>
+				<ref bean="periferico2"/>
+				<ref bean="periferico3"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Creamos la placa base -->
+	<bean id="placaBase" class="entidad.PlacaBase">
+		<property name="precio" value="97.95"></property>
+		<property name="marca" value="MSI"></property>
+		<property name="modelo" value="X4070"></property>
+	</bean>
+	
+	<!-- Montamos el ordenador -->
+	<bean id="ordenador" class="entidad.Ordenador">
+		<property name="precio" value="2000"></property>
+		<property name="marca" value="HP"></property>
+		<property name="listaRam" ref="listaRam"></property>
+		<property name="procesador" ref="procesador"></property>
+		<property name="listaTarjetaGraficas" ref="listaTarjetasGraficas"></property>
+		<property name="listaPerifericos" ref="listaPerifericos"></property>
+		<property name="placaBase" ref="placaBase"></property>
+	</bean>
+</beans>	

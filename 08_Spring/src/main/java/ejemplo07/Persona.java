@@ -1,6 +1,7 @@
 package ejemplo07;
 
 public class Persona {
+
 	private String nombre;
 	private int edad;
 	
@@ -17,15 +18,10 @@ public class Persona {
 		this.edad = edad;
 	}
 	
-	//el nombre es arbitrario
-	public void inicializar() {
-		System.out.println("Inicializando");
-		//podemos hacer conexion bbdd
-		this.nombre = "";
-		this.edad = 0;
+	@Override
+	public String toString() {
+		return "Persona [nombre=" + nombre + ", edad=" + edad + "]";
 	}
 	
-	public void destruir() {
-		System.out.println("Argggggggggggggg muero!");
-	}
+
 }
