@@ -14,6 +14,7 @@ public class Main {
 		context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 		Ordenador ordenador = context.getBean("ordenador",Ordenador.class);
 		
+		System.out.println(ordenador.getListaPerifericos());
 		System.out.println("El precio de los componentes del ordenador es de "+String.format("%.2f", ordenador.calcularPrecioComponentes())+" €");
 
 		

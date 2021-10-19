@@ -9,7 +9,7 @@ public class SpringMain6 {
 		
 	static {
 		context = 
-				new ClassPathXmlApplicationContext("beans06.xml");
+				new ClassPathXmlApplicationContext("ApplicationContext06.xml");
 	}
 	public static void main(String[] args) {
 		Persona paco = context.getBean("persona",Persona.class);

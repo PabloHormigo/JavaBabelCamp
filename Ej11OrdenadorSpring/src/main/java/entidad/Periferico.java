@@ -4,7 +4,7 @@ public class Periferico {
 	
 	private double precio;
 	private String marca;
-	private String tipo;
+	private TipoPeriferico tipo;
 	
 	public double getPrecio() {
 		return precio;
@@ -22,11 +22,12 @@ public class Periferico {
 		this.marca = marca;
 	}
 	
-	public String getTipo() {
+	
+	public TipoPeriferico getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(TipoPeriferico tipo) {
 		this.tipo = tipo;
 	}
 

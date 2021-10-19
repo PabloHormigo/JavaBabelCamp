@@ -61,17 +61,17 @@
 	<bean id="periferico1" class="entidad.Periferico">
 		<property name="precio" value="24.99"></property>
 		<property name="marca" value="Logitech"></property>
-		<property name="tipo" value="Raton"></property>
+		<property name="tipo" value="RATON"></property>
 	</bean>
 	<bean id="periferico2" class="entidad.Periferico">
 		<property name="precio" value="38.99"></property>
 		<property name="marca" value="Tempest"></property>
-		<property name="tipo" value="Teclado"></property>
+		<property name="tipo" value="TECLADO"></property>
 	</bean>
 	<bean id="periferico3" class="entidad.Periferico">
 		<property name="precio" value="399.99"></property>
 		<property name="marca" value="Gigabyte"></property>
-		<property name="tipo" value="Monitor"></property>
+		<property name="tipo" value="MONITOR"></property>
 	</bean>
 	
 	<!-- Creamos la lista de perifericos -->
