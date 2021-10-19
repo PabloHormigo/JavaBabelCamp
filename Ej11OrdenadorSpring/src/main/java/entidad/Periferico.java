@@ -33,7 +33,7 @@ public class Periferico {
 
 	@Override
 	public String toString() {
-		return "Periferico [precio=" + precio + ", marca=" + marca + ", tipo="+tipo+"]";
+		return "Periferico [precio=" + precio + ", marca=" + marca + ", tipo="+tipo.toString().toLowerCase()+"]";
 	}
 
 
