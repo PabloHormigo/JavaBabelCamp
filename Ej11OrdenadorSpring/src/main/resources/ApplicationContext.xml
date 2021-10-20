@@ -14,6 +14,16 @@
 		<property name="hz" value="4000"></property>
 		<property name="generacion" value="4º generacion"></property>
 	</bean>
+	<bean id="ramGraficaIntegrada" class="entidad.Ram">
+		<property name="precio" value="70.00"></property>
+		<property name="hz" value="3200"></property>
+		<property name="generacion" value="4º generacion"></property>
+	</bean>
+	<bean id="ramGrafica" class="entidad.Ram">
+		<property name="precio" value="81.99"></property>
+		<property name="hz" value="4000"></property>
+		<property name="generacion" value="4º generacion"></property>
+	</bean>
 	
 	<!-- Creamos la lista que contendra las ram -->
 	<bean id="listaRam" class="java.util.ArrayList">
@@ -30,13 +40,13 @@
 		<property name="precio" value="100"></property>
 		<property name="marca" value="Intel"></property>
 		<property name="modelo" value="HD620"></property>
-		<property name="ram" ref="ram1"></property>
+		<property name="ram" ref="ramGraficaIntegrada"></property>
 	</bean>
 	<bean id="tarjetaGrafica1" class="entidad.TarjetaGrafica">
 		<property name="precio" value="999.90"></property>
 		<property name="marca" value="MSI"></property>
 		<property name="modelo" value="GeForce RTX 3070"></property>
-		<property name="ram" ref="ram1"></property>
+		<property name="ram" ref="ramGrafica"></property>
 	</bean>
 	
 	<!-- Creamos la lista que contendra las tarjetas graficas -->
