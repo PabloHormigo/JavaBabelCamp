@@ -3,13 +3,25 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- Autowire es una propiedad para auto inyectar objetos
-		Spring buscara un objeto acorde para inyectar en todas
-		las propiedades que pueda. dos tipos principales:
-			1- byType: El tipo del bean de la propiedad tiene
-				ue coincidir con el tipo del bean que queremos inyectar
+	<!-- 
+		Hay veces que nos interesa simplificar la inyeccion de dependencias que tenga
+		un objeto con otros objetos. Spring nos porporciona una manera de hacer
+		este tipo de inyecciones de una manera simple mediante una propiedad de los
+		beans que se llama "Autowire"
+		
+		Autowire es una propiedad para auto inyectar objetos. De esta manera
+		cuando establecemos que un bean tenga la propiedad autowire busque 
+		automaticamente objetos para inyectar en todas en dicho bean.
+		
+		Tenemos varios tipos de autowire, los mas importantes:
+			1- byType: El tipo del bean de la propiedad tiene que coincidir 
+				con el tipo del bean que queremos inyectar. En este caso, el contexto spring
+				buscara en su contexto un bean del mismo tipo que necesita el bean
+				que lo llama
 			2- byName: El nombre del bean de la propiedad 
-			tiene que coincidir con el id del bean que queremos inyectar
+				tiene que coincidir con el id del bean que queremos inyectar. En esta caso spring buscara en su
+				contexto un bean cuyo id coincida con el nombre de la propiedad del
+				bean que lo llama
 	 -->
 	 
 	 

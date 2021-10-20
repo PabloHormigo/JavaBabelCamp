@@ -3,7 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- Spring Expresiones de lenguaje (SpEl)-->
+	<!-- Spring Expresiones de lenguaje (SpEl)
+		Para utilizar las expresiones debemos incluirlas dentro de "#{...}"
+		
+		Vamos a ver algunos ejemplos
+	-->
 	
 		
 	<bean id="direccion" class="ejemplo10.Direccion">
