@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Creamos las ram -->
+	<bean id="ram1" class="es.curso.entidad.Ram">
+		<!-- <property name="precio" value="#{T(java.lang.Math).random() * (500-24)+24 }"></property> -->	
+		<property name="precio" value="#{generarNumeroAleatorio.generarNumero(500,24)}"></property>
+		<property name="hz" value="3200"></property>
+		<property name="generacion" value="4º generacion"></property>
+	</bean>
+	<bean id="ram2" class="es.curso.entidad.Ram">
+		<property name="precio" value="#{generarNumeroAleatorio.generarNumero(500,24)}"></property>
+		<property name="hz" value="4000"></property>
+		<property name="generacion" value="4º generacion"></property>
+	</bean>
+	<bean id="ramGraficaIntegrada" class="es.curso.entidad.Ram">
+		<property name="precio" value="#{generarNumeroAleatorio.generarNumero(500,24)}"></property>
+		<property name="hz" value="3200"></property>
+		<property name="generacion" value="4º generacion"></property>
+	</bean>
+	<bean id="ramGrafica" class="es.curso.entidad.Ram">
+		<property name="precio" value="#{generarNumeroAleatorio.generarNumero(500,24)}"></property>
+		<property name="hz" value="4000"></property>
+		<property name="generacion" value="4º generacion"></property>
+	</bean>
+	
+	<!-- Creamos la lista que contendra las ram -->
+	<bean id="listaRam" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="entidad.Ram">
+				<ref bean="ram1"/>
+				<ref bean="ram2"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Creamos las tarjetas graficas -->
+	<bean id="tarjetaGraficaIntegrada" class="es.curso.entidad.TarjetaGrafica">
+		<property name="precio" value="#{generarNumeroAleatorio.generarNumero(500,24)}"></property>
+		<property name="marca" value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="modelo" value="HD620"></property>
+		<property name="ram" ref="ramGraficaIntegrada"></property>
+	</bean>
+	<bean id="tarjetaGrafica1" class="es.curso.entidad.TarjetaGrafica">
+		<property name="precio" value="#{generarNumeroAleatorio.generarNumero(500,24)}"></property>
+		<property name="marca" value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="modelo" value="GeForce RTX 3070"></property>
+		<property name="ram" ref="ramGrafica"></property>
+	</bean>
+	
+	<!-- Creamos la lista que contendra las tarjetas graficas -->
+	<bean id="listaTarjetasGraficas" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="entidad.TarjetaGrafica">
+				<ref bean="tarjetaGraficaIntegrada"/>
+				<ref bean="tarjetaGrafica1"/>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<!-- Creamos los perifericos -->
+	<bean id="periferico1" class="es.curso.entidad.Periferico">
+		<property name="precio" value="#{generarNumeroAleatorio.generarNumero(500,24)}"></property>
+		<property name="marca" value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="tipo" value="RATON"></property>
+	</bean>
+	<bean id="periferico2" class="es.curso.entidad.Periferico">
+		<property name="precio" value="#{generarNumeroAleatorio.generarNumero(500,24)}"></property>
+		<property name="marca" value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="tipo" value="TECLADO"></property>
+	</bean>
+	<bean id="periferico3" class="es.curso.entidad.Periferico">
+		<property name="precio" value="#{generarNumeroAleatorio.generarNumero(500,24)}"></property>
+		<property name="marca" value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="tipo" value="MONITOR"></property>
+	</bean>
+	
+	<!-- Creamos la lista de perifericos -->
+	<bean id="listaPerifericos" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="entidad.Periferico">
+				<ref bean="periferico1"/>
+				<ref bean="periferico2"/>
+				<ref bean="periferico3"/>
+			</list>
+		</constructor-arg>
+	</bean>
+		
+	<context:component-scan base-package="es.curso"></context:component-scan>
+</beans>	
