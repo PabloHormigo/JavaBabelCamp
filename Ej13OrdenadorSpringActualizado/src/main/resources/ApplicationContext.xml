@@ -107,10 +107,11 @@
 	</bean>
 		
 	<!-- Montamos el ordenador -->
-	<bean id="ordenador" class="entidad.Ordenador" autowire="byName">
-  		<property name="precio" value="#{ram1.precio + ram2.precio + tarjetaGraficaIntegrada.precio +
+	<bean id="ordenador" class="entidad.Ordenador" autowire="byName" init-method="inicializador">
+<!--	<property name="precio" value="#{ram1.precio + ram2.precio + tarjetaGraficaIntegrada.precio +
 			tarjetaGrafica1.precio + procesador.precio + periferico1.precio + periferico2.precio +
 			periferico3.precio + placaBase.precio}"></property>
+ -->  	
 		<property name="marca" value="#{generarMarcaAleatoria.generarMarca()}"></property>
 	</bean>
 	
