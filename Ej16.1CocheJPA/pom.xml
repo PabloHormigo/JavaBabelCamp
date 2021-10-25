@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>es.babel.curso</groupId>
-  <artifactId>Ej16CocheJPA</artifactId>
+  <artifactId>Ej16.1CocheJPA</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
   

@@ -25,52 +25,7 @@ public class MainJPA {
 	private static ApplicationContext context;
 
 	public static void main(String[] args) {
-/*		
-		context = new AnnotationConfigApplicationContext(ConfiguracionJPA.class);
 		
-		Coche c = context.getBean("coche",Coche.class);
-		c.setMatricula("4152DDX");
-		c.setMarca("Skoda");
-		c.setModelo("Fabia");
-		c.setKm(300000);
-		
-		GestorCoche gc = context.getBean(GestorCoche.class);
-		System.out.println("*** Insertando coche ***");
-		String mat = gc.insertar(c);
-		System.out.println("\tMatricula insertada: "+mat);
-		
-		System.out.println("*** Buscar coche ***");
-		System.out.println(gc.buscar(mat));
-		
-		System.out.println("*** Modificar coche ***");
-		c = context.getBean("coche",Coche.class);
-		c.setMatricula("4152DDX");
-		c.setMarca("Kia");
-		c.setModelo("Picanto");
-		c.setKm(45000);
-		gc.modidifcar(c);
-		
-		System.out.println("*** Insertando coche ***");
-		Coche c2 = context.getBean("coche",Coche.class);
-		c2.setMatricula("9919FML");
-		c2.setMarca("Seat");
-		c2.setModelo("Leon");
-		c2.setKm(100000);
-		gc.insertar(c2);
-		
-		System.out.println("*** Listar coches ***");
-		List<Coche> lista = gc.listar();
-		lista.forEach((ca)-> System.out.println(ca));
-		
-		System.out.println("*** Borrar coche ***");
-		gc.borrar("4152DDX");
-		
-		System.out.println("*** Listar coches ***");
-		lista = gc.listar();
-		lista.forEach((ca)-> System.out.println(ca));
-		
-		
-*/	
 		context = new AnnotationConfigApplicationContext(ConfiguracionJPA.class);
 		GestorCoche gestorCoche = context.getBean(GestorCoche.class);
 		Coche coche = context.getBean("coche",Coche.class);
