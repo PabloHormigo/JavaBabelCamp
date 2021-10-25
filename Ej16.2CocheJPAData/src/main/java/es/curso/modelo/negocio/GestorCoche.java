@@ -44,8 +44,8 @@ public class GestorCoche {
 		}	
 	}
 	
-	public Optional<Coche> buscar(String matricula) {
-		Optional<Coche> coche = cocheDao.findById(matricula);
+	public Coche buscar(String matricula) {
+		Coche coche = cocheDao.getOne(matricula);
 		return coche;
 	}
 	
