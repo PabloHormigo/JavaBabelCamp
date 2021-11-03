@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Dar de alta un nuevo videojuego</h1>
-	<form action="crearVideojuego" method="get">
+	<h1>Modificar un videojuego</h1>
+	<h2>${v.nombre}</h2>
+	<form action="setModificacionVideojuego" method="get">
+		Id: <input type="text" name="videogameId" value="${v.id}" readonly><br>
 		Nombre: <input type="text" name="videogameName"><br>
 		Compañia: <input type="text" name="videogameCompany"><br>
 		Nota media: <input type="text" name="videogameNote"><br>

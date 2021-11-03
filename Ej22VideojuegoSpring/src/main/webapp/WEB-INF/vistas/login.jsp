@@ -14,7 +14,7 @@
 		<input type="submit" value="Login">
 	</form>
 	<br>
-	<form action="mvc/nuevoUsuario">
+	<form action="nuevoUsuario">
 		<input type="submit" value="Dar de alta">
 	</form>
 </body>

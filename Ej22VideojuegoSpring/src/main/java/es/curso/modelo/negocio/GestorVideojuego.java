@@ -49,7 +49,7 @@ public class GestorVideojuego {
 	
 	
 	public Videojuego obtener(int id) {
-		return videojuegoDao.getOne(id);
+		return videojuegoDao.findById(id).get();
 	}
 
 }

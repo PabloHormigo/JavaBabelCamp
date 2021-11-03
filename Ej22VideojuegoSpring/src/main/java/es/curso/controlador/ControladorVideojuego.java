@@ -3,14 +3,11 @@ package es.curso.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import es.curso.cfg.ConfiguracionJPA;
 import es.curso.modelo.entidad.Usuario;
 import es.curso.modelo.entidad.Videojuego;
 import es.curso.modelo.negocio.GestorVideojuego;
@@ -18,8 +15,6 @@ import es.curso.modelo.persistencia.DaoVideojuego;
 
 @Controller
 public class ControladorVideojuego {
-	
-private static ApplicationContext context;
 	
 	@Autowired
 	private GestorVideojuego gv;
@@ -30,7 +25,16 @@ private static ApplicationContext context;
 	@Autowired
 	private Usuario u;
 	
+	@Autowired
+	private Videojuego v;
+	
 	private double totalPagar=0;
+	
+	@GetMapping("nuevoVideojuego")
+	public String nuevoVideojuego() {
+		return "crearVideojuego";
+	}
+	
 	
 	@GetMapping("crearVideojuego")
 	public String crearVideojuego(@RequestParam("videogameName") String videogameName,
@@ -40,9 +44,7 @@ private static ApplicationContext context;
 			@RequestParam("videogamePrice") String videogamePrice,
 			@RequestParam("videogameLink") String videogameLink,
 			Model model) {
-		context = new AnnotationConfigApplicationContext(ConfiguracionJPA.class);
 	
-		Videojuego v = context.getBean("videojuego",Videojuego.class);
 		v.setNombre(videogameName);
 		v.setCreador(videogameCreator);
 		v.setCompania(videogameCompany);
@@ -50,18 +52,14 @@ private static ApplicationContext context;
 		v.setEnlace(videogameLink);
 		v.setNotaMedia(Double.parseDouble(videogameNote));
 		
-		gv.insertar(v);
+		dv.save(v);
 		
 		List<Videojuego> listaVideojuegos = gv.listar();
 		System.out.println(listaVideojuegos);
+		model.addAttribute("userName", u.getUser());
 		model.addAttribute("lista", listaVideojuegos);
 		
 		return "listadoVideojuegos";
-	}
-	
-	@GetMapping("nuevoVideojuego")
-	public String nuevoVideojuego() {
-		return "crearVideojuego";
 	}
 	
 	@GetMapping("listadoVideojuegos")
@@ -83,7 +81,7 @@ private static ApplicationContext context;
 		int idAux = Integer.parseInt(id);
 		
 		
-		if(idAux<=gv.listar().size()) {
+		if(dv.existsById(idAux)) {
 			Videojuego v = dv.findById(idAux).get();
 			System.out.println(v);
 			model.addAttribute("v", v);
@@ -92,6 +90,7 @@ private static ApplicationContext context;
 		else {
 			List<Videojuego> listaVideojuegos = gv.listar();
 			model.addAttribute("lista", listaVideojuegos);
+			model.addAttribute("userName", u.getUser());
 			model.addAttribute("mensajeError", "No existe el videojuego");
 			return "listadoVideojuegos";
 		}
@@ -102,10 +101,11 @@ private static ApplicationContext context;
 			Model model) {
 		int idAux = Integer.parseInt(idEliminar);
 		
-		if(idAux<=gv.listar().size()) {
+		if(dv.existsById(idAux)) {
 			Videojuego v = dv.findById(idAux).get();
 			dv.delete(v);
 			List<Videojuego> listaVideojuegos = gv.listar();
+			model.addAttribute("userName", u.getUser());
 			model.addAttribute("lista", listaVideojuegos);
 			return "listadoVideojuegos";
 		}
@@ -122,7 +122,7 @@ private static ApplicationContext context;
 			Model model) {
 		int idAux = Integer.parseInt(id);
 		
-		if(idAux<=gv.listar().size()) {
+		if(dv.existsById(idAux)) {
 			Videojuego v = dv.findById(idAux).get();
 			model.addAttribute("v", v);
 			return "modificarVideojuego";
@@ -130,6 +130,7 @@ private static ApplicationContext context;
 		else {
 			List<Videojuego> listaVideojuegos = gv.listar();
 			model.addAttribute("lista", listaVideojuegos);
+			model.addAttribute("userName", u.getUser());
 			model.addAttribute("mensajeError", "No existe el videojuego");
 			return "listadoVideojuegos";
 		}
@@ -159,6 +160,7 @@ private static ApplicationContext context;
 		
 		List<Videojuego> listaVideojuegos = gv.listar();
 		System.out.println(listaVideojuegos);
+		model.addAttribute("userName", u.getUser());
 		model.addAttribute("lista", listaVideojuegos);
 		
 		return "listadoVideojuegos";
@@ -170,7 +172,7 @@ private static ApplicationContext context;
 		
 		int idAux = Integer.parseInt(id);
 		
-		if(idAux<=gv.listar().size()) {
+		if(dv.existsById(idAux)) {
 			Videojuego v = dv.findById(idAux).get();
 			u.getCarrito().add(v);
 			
@@ -182,10 +184,13 @@ private static ApplicationContext context;
 			List<Videojuego> listaVideojuegos = gv.listar();
 			model.addAttribute("lista", listaVideojuegos);
 			
+			model.addAttribute("userName", u.getUser());
+			
 			return "listadoVideojuegos";
 		}
 		else {
 			List<Videojuego> listaVideojuegos = gv.listar();
+			model.addAttribute("userName", u.getUser());
 			model.addAttribute("lista", listaVideojuegos);
 			model.addAttribute("listaCarrito",u.getCarrito());
 			model.addAttribute("totalPagar", totalPagar);
