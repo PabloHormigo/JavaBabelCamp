@@ -1,8 +1,5 @@
 package es.curso.modelo.negocio;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +13,6 @@ public class GestorUsuario {
 	
 	@Autowired
 	private DaoUsuario daoUsuario;
-	
-	@PersistenceContext
-	EntityManager em;
 	
 	@Transactional
 	public String insertar(Usuario u) {
