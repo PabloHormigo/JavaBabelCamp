@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import serviciorest.modelo.entidad.*;
-import serviciorest.modelo.negocio.GestorVideojuego;
+import serviciorest.cliente.negocio.GestorVideojuego;
+import serviciorest.cliente.entidad.*;
 
 @RestController
 public class ControladorVideojuego {

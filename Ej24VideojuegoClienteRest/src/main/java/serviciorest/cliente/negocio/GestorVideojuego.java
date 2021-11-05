@@ -1,6 +1,4 @@
-package serviciorest.modelo.negocio;
-
-import serviciorest.modelo.persistencia.DaoVideojuego;
+package serviciorest.cliente.negocio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import serviciorest.modelo.entidad.*;
+import serviciorest.cliente.entidad.*;
+import serviciorest.cliente.persistencia.DaoVideojuego;
 
 @Service
 public class GestorVideojuego {
