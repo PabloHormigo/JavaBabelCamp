@@ -14,6 +14,8 @@ public class Ej25VideojuegoMongoApplication implements CommandLineRunner{
 	
 	@Autowired
 	private GestorVideojuego gv;
+	
+	//Hay que activar el enlace con la contraseña en el properties 
 
 	public static void main(String[] args) {
 		SpringApplication.run(Ej25VideojuegoMongoApplication.class, args);
